@@ -1,0 +1,44 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+}
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'io.franzbecker.gradle-lombok' version '1.14'
+}
+
+group = 'ru.organizer'
+version = '1.0.0'
+sourceCompatibility = 1.8
+mainClassName = 'ru.organizer.OrganizerApp'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    // Serialization
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.4'
+
+    //Utils
+    compile 'org.apache.commons:commons-lang3:3.4'
+
+    // Tests
+    testCompile 'junit:junit:4.12'
+}
+
+run {
+    args = ['org.gradle.daemon', false]
+}
+
+lombok {
+    version = "1.16.20"
+    sha256 = "c5178b18caaa1a15e17b99ba5e4023d2de2ebc18b58cde0f5a04ca4b31c10e6d"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.8'
+}
