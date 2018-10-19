@@ -25,6 +25,7 @@ dependencies {
 
     //Utils
     compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'commons-io:commons-io:2.5'
 
     // Tests
     testCompile 'junit:junit:4.12'
@@ -32,6 +33,7 @@ dependencies {
 
 run {
     args = ['org.gradle.daemon', false]
+    standardInput = System.in
 }
 
 lombok {

@@ -15,7 +15,7 @@ public class HelpCommand extends Command {
                 "update – Редактирование даннных по клиенту по id\nПример: update f6cf7c26 -name Ivanov/Sergei -phones +7999123456,+7999456123\n\n" +
                 "delete – Удаление клиента по id.\nПример: delete f6cf7c26\n\n" +
                 "list – Список всех клиентов с сортировкой\nПример: list organization\n\n" +
-                "find – Поиск клиента по номеру телефона\nПример: find +7999123456\n\n";
+                "find – Поиск клиента по номеру телефона\nПример: find +7999123456\n";
     }
     
 }

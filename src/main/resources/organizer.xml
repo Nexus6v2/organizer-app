@@ -1,0 +1,25 @@
+<Organizer>
+    <customers>
+        <customers>
+            <id>c7651c25</id>
+            <name>FedorKuznetsov</name>
+            <organization>Sberbank</organization>
+            <position>SeniorDeveloper</position>
+            <email>kuzentsov@gmail.com</email>
+            <phones>
+                <phones>81234567123</phones>
+                <phones>81234567120</phones>
+            </phones>
+        </customers>
+        <customers>
+            <id>df974818</id>
+            <name>DmitryIvanov</name>
+            <organization>Sberbank</organization>
+            <position>Developer</position>
+            <email>ivanov@gmail.com</email>
+            <phones>
+                <phones>81234567123</phones>
+            </phones>
+        </customers>
+    </customers>
+</Organizer>

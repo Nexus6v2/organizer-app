@@ -1,11 +1,13 @@
 package ru.organizer;
 
 import lombok.SneakyThrows;
+import org.junit.AfterClass;
 import org.junit.Test;
 import ru.organizer.command.OrganizerCommandFactory;
 import ru.organizer.dao.Organizer;
 import ru.organizer.entity.Customer;
 
+import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -14,6 +16,8 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 public class OrganizerAppTests {
+    private static final String ORGANIZER_TEST_FILENAME = "src/test/resources/organizer.xml";
+    
     private Organizer organizer;
     private OrganizerCommandFactory organizerCommandFactory;
     
@@ -41,7 +45,7 @@ public class OrganizerAppTests {
                 .setPosition("Developer")
                 .setPhones(Arrays.asList("84567891234"));
         
-        organizer = new Organizer("ru/organizer/organizer.xml");
+        organizer = new Organizer(ORGANIZER_TEST_FILENAME);
         
         ArrayList<Customer> customers = new ArrayList<>();
         customers.add(testCustomer1);
@@ -53,6 +57,13 @@ public class OrganizerAppTests {
         Method persist = organizer.getClass().getDeclaredMethod("persist");
         persist.setAccessible(true);
         persist.invoke(organizer);
+    }
+    
+    @AfterClass
+    @SneakyThrows
+    public static void clean() {
+        File organizer = new File(ORGANIZER_TEST_FILENAME);
+        organizer.delete();
     }
     
     @Test
@@ -102,7 +113,6 @@ public class OrganizerAppTests {
 	    init();
 	    String deleteCommandBody = "delete a7cf2ac5";
 	    String output = executeCommand(deleteCommandBody);
-        System.out.println(output);
 	    
 	    assertEquals("Удален клиент:\n" +
                 "id: a7cf2ac5, name: IvanIvanov, organization: Sberbank, position: Developer, email: ivanov@gmail.com, phones: [89991234567, 89997654321]",

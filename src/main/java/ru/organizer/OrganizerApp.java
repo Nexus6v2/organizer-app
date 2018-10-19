@@ -15,7 +15,7 @@ public class OrganizerApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
     
-        Organizer organizer = new Organizer("ru/organizer/organizer.xml");
+        Organizer organizer = new Organizer("src/main/resources/organizer.xml");
         OrganizerCommandFactory commandFactory = new OrganizerCommandFactory();
         
         System.out.println("Приложение \"Органайзер\". Для списка команд введите \"help\".");
@@ -30,7 +30,6 @@ public class OrganizerApp {
                 System.out.println(output);
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
-                e.printStackTrace();
             }
         }
     }
